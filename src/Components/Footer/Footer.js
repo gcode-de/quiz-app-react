@@ -1,3 +1,6 @@
+import React from "react";
+import { NavLink } from "react-router-dom";
+
 import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,26 +15,38 @@ export default function Footer() {
     <footer className="footer">
       <menu>
         <ul>
-          <a href="./index.html" aria-label="home">
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             <li>
               <FontAwesomeIcon icon={faHouse} />
             </li>
-          </a>
-          <a href="./favs.html" aria-label="Favourites">
+          </NavLink>
+          <NavLink
+            to="/favorites"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             <li>
               <FontAwesomeIcon icon={faBookmark} />
             </li>
-          </a>
-          <a href="./form.html" aria-label="Add Question">
+          </NavLink>
+          <NavLink
+            to="/form"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             <li>
               <FontAwesomeIcon icon={faCirclePlus} />
             </li>
-          </a>
-          <a href="./profile.html" aria-label="Profile">
+          </NavLink>
+          <NavLink
+            to="/profile"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
             <li>
               <FontAwesomeIcon icon={faUser} />
             </li>
-          </a>
+          </NavLink>
         </ul>
       </menu>
     </footer>

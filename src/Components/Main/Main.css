@@ -25,5 +25,5 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* max-width: var(--main-width); */
+  max-width: var(--main-width);
 }

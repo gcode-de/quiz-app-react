@@ -11,22 +11,27 @@ export default function Card({
   link,
   tags,
   isBookmarked,
+  setQuestions,
 }) {
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
   const [isBookmarkedState, setIsBookmarkedState] = useState(isBookmarked);
+
+  const handleBookmark = () => {
+    setIsBookmarkedState(!isBookmarkedState);
+
+    setQuestions((prevQuestions) =>
+      prevQuestions.map((q) =>
+        q.id === id ? { ...q, isBookmarked: !q.isBookmarked } : q
+      )
+    );
+  };
 
   return (
     <article
       q-id={id}
       className={`article ${isBookmarkedState ? "article-fav" : ""}`}
     >
-      <div
-        className="bookmark"
-        aria-label="bookmark"
-        onClick={() => {
-          setIsBookmarkedState(!isBookmarkedState);
-        }}
-      >
+      <div className="bookmark" aria-label="bookmark" onClick={handleBookmark}>
         <FontAwesomeIcon icon={faBookmark} />
       </div>
       <div className="question">{question}</div>
