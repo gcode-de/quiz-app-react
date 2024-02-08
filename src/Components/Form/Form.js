@@ -45,6 +45,8 @@ export default function Form({ questions, setQuestions }) {
     //save question
     console.log("Add question:", newQuestion);
     setQuestions((questions) => [...questions, newQuestion]);
+
+    event.target.reset();
   };
 
   return (
@@ -84,23 +86,11 @@ export default function Form({ questions, setQuestions }) {
           </label>
           <label htmlFor="link">
             Link:
-            <input
-              ref={linkRef}
-              id="link"
-              className="link"
-              type="url"
-              placeholder="Provide a link (optional)"
-            ></input>
+            <input ref={linkRef} id="link" className="link" type="url" placeholder="Provide a link (optional)"></input>
           </label>
           <label htmlFor="tags">
             Tags:
-            <input
-              ref={tagsRef}
-              id="tags"
-              type="text"
-              className="tags"
-              placeholder="Type tags separated by comma"
-            ></input>
+            <input ref={tagsRef} id="tags" type="text" className="tags" placeholder="Type tags separated by comma"></input>
           </label>
           <button name="submit">Submit</button>
         </form>
